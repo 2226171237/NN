@@ -83,10 +83,10 @@ for epoch in range(num_epochs):
         right_num+=np.sum(np.argmax(y_pred,axis=-1)==np.argmax(y,axis=-1))
         t_loss += model.loss(y_pred, y)
         n += 1
-    accuray=right_num/test_data.num_samples
+    accuracy=right_num/test_data.num_samples
     t_loss /= n
     test_loss.append(t_loss)
-    print('>%d/%d: train loss=%f, test_loss=%f, accuray=%f' % (epoch + 1, num_epochs, loss, t_loss,accuray))
+    print('>%d/%d: train loss=%f, test_loss=%f, accuracy=%f' % (epoch + 1, num_epochs, loss, t_loss,accuracy))
 
 plt.plot(train_loss)
 plt.plot(test_loss)

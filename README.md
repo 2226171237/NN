@@ -45,6 +45,7 @@ from layers import Layer
 
 model=NeuralNetwork()
 model.add_layer(Layer(4,8,'relu'))
+model.add_layer(Layer(8,8,'relu'))
 model.add_layer(Layer(8,3))
 ```
 ## 定义损失和优化器
@@ -52,15 +53,15 @@ model.add_layer(Layer(8,3))
 from optimizers import Optimizers
 from loss import Loss
 
-lr=0.1
+lr=0.01
 loss=Loss(loss='cross_entropy_with_logits')
 optimizer=Optimizers(optimizer='sgd',learning_rate=lr)
 model.compile(loss=loss,optimizer=optimizer)
 ```
 ## 训练网络
 ```python
-num_epochs = 400
-batch_size = 16
+num_epochs = 1600
+batch_size = 64
 train_loss = []
 test_loss = []
 for epoch in range(num_epochs):

@@ -7,6 +7,7 @@ from optimizers import Optimizers
 from loss import Loss
 from layers import Layer
 from utils import one_hot
+"""
 # 数据加载与处理
 (x_train,y_train),(x_test,y_test)=datasets.mnist.load_data()
 
@@ -30,7 +31,7 @@ print(iris.data.shape)
 x_train,x_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=0.2,random_state=10,shuffle=True)
 print(x_train.shape,x_test.shape)
 print(y_test[:10])
-"""
+
 
 class DataLoader:
     def __init__(self, X, y, class_num,func=None):
@@ -52,24 +53,24 @@ class DataLoader:
         if have_train_num<self.num_samples:
             yield self.X[indices[have_train_num:], :], one_hot(self.y[indices[have_train_num:]], self.class_num)
 
-train_data=DataLoader(x_train,y_train,10)
-test_data=DataLoader(x_test,y_test,10)
+train_data=DataLoader(x_train,y_train,3)
+test_data=DataLoader(x_test,y_test,3)
 
 # 构建网络
 model=NeuralNetwork()
-model.add_layer(Layer(784,256,'relu'))
-model.add_layer(Layer(256,128,'relu'))
-model.add_layer(Layer(128,10))
+model.add_layer(Layer(4,8,'relu'))
+model.add_layer(Layer(8,8,'relu'))
+model.add_layer(Layer(8,3))
 
 # 构建损失函数和优化器
-lr=0.05
+lr=0.01
 loss=Loss(loss='cross_entropy_with_logits')
 optimizer=Optimizers(optimizer='sgd',learning_rate=lr)
 model.compile(loss=loss,optimizer=optimizer)
 
 # 训练数据
-num_epochs = 100
-batch_size = 16
+num_epochs = 1600
+batch_size = 64
 train_loss = []
 test_loss = []
 for epoch in range(num_epochs):

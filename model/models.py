@@ -31,6 +31,7 @@ class NeuralNetwork:
                 layer.backward(self._layers[len(self._layers) - i].error)
         # 求导
         for layer in self._layers:
-            grads = layer.gradient()
-            # 更新
-            self.optimizer.update(layer.trainabel_variables, grads)
+            if layer.trainable:
+                grads = layer.gradient()
+                # 更新
+                self.optimizer.update(layer.trainabel_variables, grads)

@@ -16,6 +16,7 @@ class Layer:
         self.variables = []  # 所有变量
         self.error = None  # 传给下一层的dL/da
         self.delta = None  # dL/dz
+        self.input=None # 网络输入
         self.last_output = None  # 最终经过激活函数的输出
 
         if isinstance(input_shape, (list, tuple)):

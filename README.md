@@ -86,6 +86,7 @@ plt.xlabel('epoch')
 plt.ylabel('cross_entropy')
 plt.show()
 ```
-## 结果训练曲线
+## 训练结果
+![](./imgs/print.png)
 ![](./imgs/loss.png)
 

@@ -1,4 +1,9 @@
 # -*- coding=utf-8 -*-
+'''
+包含常见的损失函数以及他们的求导
+重要使用Loss类来实现，加到网络中
+'''
+
 import numpy as np
 from activate.activate import softmax
 

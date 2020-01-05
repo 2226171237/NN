@@ -14,7 +14,7 @@ print(y_test[:10])
 ```
 ## 构建数据生成器
 ```python
-from utils.utils import one_hot
+from utils import one_hot
 class DataLoader:
     def __init__(self, X, y, class_num,func=None):
         self.X = X
@@ -40,8 +40,8 @@ test_data=DataLoader(x_test,y_test,3)
 ```
 ## 构建网络
 ```python
-from model.models import NeuralNetwork
-from layers.layers import Layer
+from models import NeuralNetwork
+from layers import Layer
 
 model=NeuralNetwork()
 model.add_layer(Layer(4,8,'relu'))
@@ -49,8 +49,8 @@ model.add_layer(Layer(8,3))
 ```
 ## 定义损失和优化器
 ```python
-from optimizers.optimizers import Optimizers
-from loss.loss import Loss
+from optimizers import Optimizers
+from loss import Loss
 
 lr=0.1
 loss=Loss(loss='cross_entropy_with_logits')

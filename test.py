@@ -2,11 +2,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras import datasets
-from model.models import NeuralNetwork
-from optimizers.optimizers import Optimizers
-from loss.loss import Loss
-from layers.layers import Layer
-from utils.utils import one_hot
+from models import NeuralNetwork
+from optimizers import Optimizers
+from loss import Loss
+from layers import Layer
+from utils import one_hot
 # 数据加载与处理
 (x_train,y_train),(x_test,y_test)=datasets.mnist.load_data()
 

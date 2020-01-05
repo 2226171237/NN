@@ -35,8 +35,8 @@ class DataLoader:
         if have_train_num<self.num_samples:
             yield self.X[indices[have_train_num:], :], one_hot(self.y[indices[have_train_num:]], self.class_num)
 
-train_data=DataLoader(x_train,y_train,10)
-test_data=DataLoader(x_test,y_test,10)
+train_data=DataLoader(x_train,y_train,3)
+test_data=DataLoader(x_test,y_test,3)
 ```
 ## 构建网络
 ```python
@@ -59,7 +59,7 @@ model.compile(loss=loss,optimizer=optimizer)
 ```
 ## 训练网络
 ```python
-num_epochs = 100
+num_epochs = 400
 batch_size = 16
 train_loss = []
 test_loss = []
